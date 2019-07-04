@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -87,14 +88,28 @@ int main() {
 
 	//}
 
-	int sum = 0;
-	int next;
-	for (int count = 1; count <= 5; count++) {
-		cin >> next;
-		sum = sum + next;
-		cout << sum;
-	}
+	//int sum = 0;
+	//int next;
+	//for (int count = 1; count <= 5; count++) {
+	//	cin >> next;
+	//	sum = sum + next;
+	//	cout << sum;
+	//}
 
+ //   enum class aa  {a = 2,b =3,t=4};
+	//aa dd = aa::b;
+
+	//从路径里截取文件名称，如果只有文件名称，则直接返回（不包含后缀）
+	//inline std::string GetNameFromPath(const std::string &path) {
+	//	std::size_t bed = path.find_last_of("\\/"); //查找路径  a/b/t.exe 查找到t  /是 4  那么+1 是 5 ，end 是 6 -4 -1；那么就是t
+	//	std::size_t end = path.find_last_of(".");
+
+	//	if (bed == std::string::npos)
+	//		bed = -1;
+	//	return path.substr(bed + 1, end - bed - 1);
+	//}
+
+	
 
 
 	system("pause");

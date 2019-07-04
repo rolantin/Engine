@@ -69,110 +69,50 @@ namespace E3D{
 		return EWSring(tString);
 	}
 
-	//检测两个浮点数是否相等
+	//检测两个浮点数是否相等   
 	inline EBool EqualFloat(EFloat l , EFloat r) {
 		return abs(l - r) <= EPSILON_E6 ; 
 	}
 
 	//从路径里截取文件名称，如果只有文件名称，则直接返回（不包含后缀）
-	inline EString GetNameFromPath(const EString &Path ){
+	inline EString GetNameFromPath(const EString &path){
+		std::size_t beg = path.find_last_of("\\/"); //查找路径  a/b/t.exe 查找到t  /是 4  那么+1 是 5 ，end 是 6 -4 -1；那么就是t
+		std::size_t end = path.find_last_of(".");
 
+
+		if (beg == EString::npos)
+			beg = -1;
+		return path.substr(beg + 1, end - beg - 1);
+
+		//std::string  aa = "c/dd/tdd.exe";
+		//std::size_t bed = aa.find_last_of("\\/");
+		//std::size_t end = aa.find_last_of(".");
+
+		//printf(std::to_string(bed + 1).c_str());
+		//printf(std::to_string(end).c_str());
+		//printf(std::string(aa.substr(bed + 1, end - bed - 1)).c_str());  //substr() 方法可在字符串中抽取从 start 下标开始的指定数目的字符
+	}
+
+   //将给定的字符串两端的空白字符删除
+	inline EString Trim (const EString &msg){
+		const static EString SPACE_CHAR = " \t\f\v\n\r";
+		std::size_t beg = msg.find_first_not_of(SPACE_CHAR);
+
+		//防止空字符串出现
+		if (beg > msg.length())
+			return EString();
+
+		EString result = msg.substr(beg);
+		std::size_t end = result.find_last_not_of(SPACE_CHAR);
+
+		if (end != EString::npos)
+			end++;
+
+		return result.substr(0, end);
 
 	}
 
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		return ran;
-
-	}
-
-
-})
